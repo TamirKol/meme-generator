@@ -18,10 +18,28 @@ function getMeme(imgIdx){
 }
 
 function SetLineTxt(text){
-    gMeme.lines[0].txt=text
+    let selectedLine= gMeme.selectedLineIdx
+    gMeme.lines[selectedLine].txt=text
     console.log(gMeme);
 }
 
 function setImg(img){
+   const imgUrl= img.src
+   const imgId= img.id
+   const inGImgs= gImgs.some(img=>img.url===imgUrl)
+   if(!inGImgs){
+   let img= _createMemeImg(imgId,imgUrl,)
+    gImgs.push(img)
+   }
+ console.log(gImgs);
     
+}
+
+function _createMemeImg(id,url,keywords=[]){
+    const meme={
+        id,
+        url,
+        keywords
+    }
+    return meme
 }

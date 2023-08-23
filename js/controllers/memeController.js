@@ -12,11 +12,11 @@ function onInit(){
 
 function renderMeme(){
     onClearCanvas()
-    currentImg=document.querySelector('img')
+    currentImg
     coverCanvasWithImage(currentImg)
     const elMeme=onGetMeme(currentImg.id)
     console.log(elMeme);
-    drawText(elMeme.lines[0].txt)
+    drawText(elMeme.lines[elMeme.selectedLineIdx].txt)
 
 
 }
@@ -58,7 +58,9 @@ function OnSetLineTxt(text){
 SetLineTxt(text)
 renderMeme()
 }
-function onImgselect(img){
+function onImgSelect(img){
+    console.log(img);
     setImg(img)
+    currentImg=img
     renderMeme()
 }
