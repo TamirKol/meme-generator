@@ -4,10 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>meme generator</title>
-    <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="css\main.css">
+    <script src="js\services\memeService.js"></script>
+    <script src="js\controllers\memeController.js"></script>
+    <script src="js\controllers\galleryController.js"></script>
+    <script src="js\services\galleryService.js"></script>
     <script src="js\main.js"></script>
 </head>
-<body>
-    
+<body onload="onInit()">
+    <header></header>
+    <main>
+        <section class="gallery">
+         <div search bar>
+            <input type="search" placeholder="search">
+            <div class="popular-tags"></div>
+         </div>   
+         <div class="image-gallery"></div>
+        </section>
+        <section class="editor">
+            <div class="canvas-container">
+                <canvas width="400" height="400"></canvas>
+              </div>
+              <div class="features">
+                <input type="text" oninput="OnSetLineTxt(this.value)" placeholder="change line text" class="input-text">
+              </div>
+              <img id="1" onclick="renderMeme(this)" src="meme-imgs\meme-imgs (square)\1.jpg">
+              <img id="2" onclick="renderGallery()" src="meme-imgs\meme-imgs (square)\1.jpg">
+        </section>
+    </main>
+    <footer></footer>
 </body>
 </html>
