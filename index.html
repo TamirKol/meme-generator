@@ -25,8 +25,24 @@
             <div class="canvas-container">
                 <canvas width="400" height="400"></canvas>
               </div>
+              <a href="#" onclick="downloadCanvas(this)" download="file-name">Download Meme</a>
               <div class="features">
-                <input type="text" oninput="OnSetLineTxt(this.value)" placeholder="change line text" class="input-text">
+                <div class="text-lines">
+                <input type="text"oninput="OnSetLineTxt(this.value,1)" placeholder="change line text" class="input-text">
+                </div>
+                <input type="color" oninput="onSetColor(this.value)" class="input-color">
+                <div>
+
+                    <button onclick="onTextSizeChange(2)" class="btn-increase">A+</button>
+                    <span>font size</span>
+                    <button onclick="onTextSizeChange(-2)" class="btn-decrease">A-</button>
+                </div>
+                <div>
+                    <button onclick="onAddLine()" class="btn-add-line">➕</button>
+                    <button onclick="onSwichLine()" class="btn-add-line">🔄</button>
+                <button onclick="onAddLine()" class="btn-add-line">✖</button>
+
+                </div>
               </div>
               <img id="1" onclick="renderMeme(this)" src="meme-imgs\meme-imgs (square)\1.jpg">
               <img id="2" onclick="renderGallery()" src="meme-imgs\meme-imgs (square)\1.jpg">
