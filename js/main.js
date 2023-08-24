@@ -1,7 +1,5 @@
 'use strict'
-// var gElCanvas
-// var gCtx
-// function onInit(){
-//  gElCanvas= document.querySelector('canvas')
-//  gCtx= gElCanvas.getContext('2d')
-// }
+function openModal(){
+    document.querySelector('.modal').style.display='block'
+    document.querySelector('.backdrop').style.display='block'
+}

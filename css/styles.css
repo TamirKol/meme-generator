@@ -2,3 +2,19 @@
 @import url("basics/base.css");
 @import url("basics/layout.css");
 @import url("basics/helpers.css");
+
+/* COMPONENTS */
+@import url("components/logo.css");
+@import url("components/main-header.css");
+@import url("components/main-container.css");
+@import url("components/gallery.css");
+@import url("components/modal.css");
+@import url("components/navigate-pages.css");
+@import url("components/footer.css");
+@import url("components/meme-editor.css");
+
+/* SETUP */
+@import url("setup/vars.css");
+
+/* MEDIA QUERIES */
+@import url("setup/mq.css");

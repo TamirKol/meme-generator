@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +12,9 @@
     <script src="js\services\galleryService.js"></script>
     <script src="js\main.js"></script>
 </head>
-<body onload="onInit()">
-    <!-- <header></header> -->
+
+<body onload="onInit()" class="main-layout">
+
     <header class="main-header main-layout full">
         <nav class="main-nav-container grid space-between align-center flow-column">
             <div class="logo">Meme Generator<span>😎</span></div>
@@ -24,42 +26,57 @@
             </div>
             <button onclick="openModal()" class="btn-toggle-menu" onclick="toggleMenu()">☰</button>
         </nav>
-    </header>
-    <main>
-        <section class="gallery">
-         <div search bar>
+        <div class="search-bar full">
             <input type="search" placeholder="search">
             <div class="popular-tags"></div>
-         </div>   
-         <div class="image-gallery"></div>
+        </div>
+    </header>
+
+    <main  >
+        <section class="gallery">
+            <div class="image-gallery"></div>
         </section>
-        <section class="editor">
+
+        <section class="editor grid">
+           
             <div class="canvas-container">
                 <canvas width="400" height="400"></canvas>
-              </div>
-              <a href="#" onclick="downloadCanvas(this)" download="file-name">Download Meme</a>
-              <div class="features">
-                <div class="text-lines">
-                <input type="text"oninput="OnSetLineTxt(this.value)" placeholder="change line text" class="input-text">
-                </div>
-                <input type="color" oninput="onSetColor(this.value)" class="input-color">
-                <div>
+            </div>
 
+            <div class="features grid">
+
+                <div class="text-lines">
+                 <input type="text" oninput="OnSetLineTxt(this.value)" placeholder="change line text"
+                    class="input-text">
+                </div>
+                
+                <div class="lines-features">
+                    <button onclick="onAddLine()" class="btn-add-line">➕</button>
+                    <button onclick="onSwichLine()" class="btn-switch-line">🔃</button>
+                    <button onclick="onAddLine()" class="btn-delete-line">✖</button>
+                </div>
+                
+                <div class="typographi">
+                    <input type="color" oninput="onSetColor(this.value)" class="input-color">🎨</input>
                     <button onclick="onTextSizeChange(2)" class="btn-increase">A+</button>
                     <span>font size</span>
                     <button onclick="onTextSizeChange(-2)" class="btn-decrease">A-</button>
                 </div>
-                <div>
-                    <button onclick="onAddLine()" class="btn-add-line">➕</button>
-                    <button onclick="onSwichLine()" class="btn-add-line">🔄</button>
-                <button onclick="onAddLine()" class="btn-add-line">✖</button>
+
+                <div class="emoji"></div>
+                <div class="share-features">
+                    <a href="#" onclick="downloadCanvas(this)"class="btn-download" download="file-name">Download Meme</a>
 
                 </div>
-              </div>
-              <!-- <img id="1" onclick="renderMeme(this)" src="meme-imgs\meme-imgs (square)\1.jpg">
+            </div>
+            <!-- <img id="1" onclick="renderMeme(this)" src="meme-imgs\meme-imgs (square)\1.jpg">
               <img id="2" onclick="renderGallery()" src="meme-imgs\meme-imgs (square)\1.jpg"> -->
         </section>
     </main>
-    <footer></footer>
+    <footer class="full" >
+        <div class="logo">Meme Generator<span>😎</span></div>
+        <h4 class="rights-reserved">© 2023 - All Rights Reserved </h4>
+    </footer>
 </body>
+
 </html>
