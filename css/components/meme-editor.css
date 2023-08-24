@@ -19,7 +19,7 @@
     background: linear-gradient(233deg, rgba(9,159,193,1) 0%, rgba(0,75,233,1) 100%);
 }
     .canvas-container{
-    border: 1px solid black;
+    
     grid-area: 'canvas';
 }
 .btn-download{
