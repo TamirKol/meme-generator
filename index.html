@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>meme generator</title>
-    <link rel="stylesheet" href="css\main.css">
+    <link rel="stylesheet" href="css\styles.css">
     <script src="js\services\memeService.js"></script>
     <script src="js\controllers\memeController.js"></script>
     <script src="js\controllers\galleryController.js"></script>
@@ -12,7 +12,19 @@
     <script src="js\main.js"></script>
 </head>
 <body onload="onInit()">
-    <header></header>
+    <!-- <header></header> -->
+    <header class="main-header main-layout full">
+        <nav class="main-nav-container grid space-between align-center flow-column">
+            <div class="logo">Meme Generator<span>😎</span></div>
+            <div class="main-nav">
+                <ul class="clean-list grid flow-column">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">gallery</a></li>
+                </ul>
+            </div>
+            <button onclick="openModal()" class="btn-toggle-menu" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
     <main>
         <section class="gallery">
          <div search bar>
@@ -28,7 +40,7 @@
               <a href="#" onclick="downloadCanvas(this)" download="file-name">Download Meme</a>
               <div class="features">
                 <div class="text-lines">
-                <input type="text"oninput="OnSetLineTxt(this.value,1)" placeholder="change line text" class="input-text">
+                <input type="text"oninput="OnSetLineTxt(this.value)" placeholder="change line text" class="input-text">
                 </div>
                 <input type="color" oninput="onSetColor(this.value)" class="input-color">
                 <div>
@@ -44,8 +56,8 @@
 
                 </div>
               </div>
-              <img id="1" onclick="renderMeme(this)" src="meme-imgs\meme-imgs (square)\1.jpg">
-              <img id="2" onclick="renderGallery()" src="meme-imgs\meme-imgs (square)\1.jpg">
+              <!-- <img id="1" onclick="renderMeme(this)" src="meme-imgs\meme-imgs (square)\1.jpg">
+              <img id="2" onclick="renderGallery()" src="meme-imgs\meme-imgs (square)\1.jpg"> -->
         </section>
     </main>
     <footer></footer>

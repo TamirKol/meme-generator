@@ -12,6 +12,5 @@ let gGallery=[
 
 function getImagesToShow(){
     const images= gGallery.map(img=> img)
-    console.log(images);
     return images
 }
