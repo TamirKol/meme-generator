@@ -1,11 +1,8 @@
 .logo {
     font-family: eurofurence, serif;
-    font-size: 2em;
+    font-size: 1.5em;
     letter-spacing: -0.02em;
     
     color: var(--clrPrimary-2);
 }
 
-.logo>span {
-    color: var(--clrSecondary);
-}

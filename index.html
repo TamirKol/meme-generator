@@ -21,62 +21,100 @@
             <div class="main-nav">
                 <ul class="clean-list grid flow-column">
                     <li><a href="#">About</a></li>
-                    <li><a href="#">gallery</a></li>
+                    <li><a onclick="showGallery()" href="#">gallery</a></li>
                 </ul>
             </div>
-            <button onclick="openModal()" class="btn-toggle-menu" onclick="toggleMenu()">☰</button>
+            <button class="btn-toggle-menu" onclick="toggleMenu()">
+                <div class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+            </button>
         </nav>
-        <div class="search-bar full">
-            <input type="search" placeholder="search">
-            <div class="popular-tags"></div>
+
         </div>
     </header>
-
-    <main  >
+    <div class="search-bar full">
+        <input type="search" placeholder="search">
+    </div>
+    <div class="popular-tags"></div>
+    <main class="main-container">
         <section class="gallery">
             <div class="image-gallery"></div>
         </section>
 
         <section class="editor grid">
-           
+
             <div class="canvas-container">
                 <canvas width="400" height="400"></canvas>
             </div>
 
-            <div class="features grid">
+            <div class="features ">
 
                 <div class="text-lines">
-                 <input type="text" oninput="OnSetLineTxt(this.value)" placeholder="change line text"
-                    class="input-text">
+                    <input type="text" oninput="OnSetLineTxt(this.value)" placeholder="change line text"
+                        class="input-text">
                 </div>
-                
+
                 <div class="lines-features">
-                    <button onclick="onAddLine()" class="btn-add-line">➕</button>
                     <button onclick="onSwichLine()" class="btn-switch-line">🔃</button>
-                    <button onclick="onAddLine()" class="btn-delete-line">✖</button>
+                    <button onclick="onAddLine()" class="btn-add-line">➕</button>
+                    <button onclick="onDeleteLine()" class="btn-delete-line">✖</button>
                 </div>
-                
-                <div class="typographi">
-                    <input type="color" oninput="onSetColor(this.value)" class="input-color">🎨</input>
-                    <button onclick="onTextSizeChange(2)" class="btn-increase">A+</button>
+
+                <div class="typography grid">
+                    <button onclick="onTextSizeChange(4)" class="btn-increase">A+</button>
                     <span>font size</span>
-                    <button onclick="onTextSizeChange(-2)" class="btn-decrease">A-</button>
+                    <button onclick="onTextSizeChange(-4)" class="btn-decrease">A-</button>
+                    <button onclick="onTextAlignment(1)" class="btn-align"><img
+                            src="meme-imgs\ICONS\align-to-left.png"></button>
+                    <button onclick="onTextAlignment(2)" class="btn-align"><img
+                            src="meme-imgs\ICONS\center-text-alignment.png"></button>
+                    <button onclick="onTextAlignment(3)" class="btn-align"><img
+                            src="meme-imgs\ICONS\align-to-right.png"></button>
+                    <div><input type="color" oninput="onSetColor(this.value)" class="input-color">🎨</input>
+                    </div>
+                    <select onchange="onChangeFont(this.value)">
+                        <option value="Impact">Impact</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Gill Sans">Gill Sans</option>
+                    </select>
+
+
                 </div>
 
                 <div class="emoji"></div>
                 <div class="share-features">
-                    <a href="#" onclick="downloadCanvas(this)"class="btn-download" download="file-name">Download Meme</a>
+                    <a href="#" onclick="downloadCanvas(this)" class="btn-download" download="file-name">Download
+                        Meme</a>
+                    <a href="#" onclick="onUploadImg()" class="btn-download"><img
+                            src="meme-imgs\ICONS\facebook-logo.png"></a>
+
 
                 </div>
             </div>
-            <!-- <img id="1" onclick="renderMeme(this)" src="meme-imgs\meme-imgs (square)\1.jpg">
-              <img id="2" onclick="renderGallery()" src="meme-imgs\meme-imgs (square)\1.jpg"> -->
         </section>
     </main>
-    <footer class="full" >
+    <footer class="full">
         <div class="logo">Meme Generator<span>😎</span></div>
         <h4 class="rights-reserved">© 2023 - All Rights Reserved </h4>
     </footer>
+    <dialog class="dialog" onclick="onClickOutside(event, this)">
+        <h2>Join us to get access to the latest stories!</h2>
+        <label class="email">
+            <span>E-Mail:</span>
+            <input class="email-input" type="email" name="email" placeholder="Insert your email here" />
+        </label>
+        <div class="modal-btn-container ">
+            <button class="modal-close-btn btn" onclick="closeModal()">Close</button>
+            <button class="modal-submit-btn btn" type="submit">Submit</button>
+        </div>
+    </dialog>
+
+    </div>
 </body>
 
 </html>

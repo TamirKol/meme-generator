@@ -5,8 +5,10 @@ var gMeme = {
     lines: [
         {
             txt: 'I sometimes eat Falafel',
-            size: 20,
+            size: 30,
+            alignment: 'center',
             color: 'red',
+            font:'Impact',
             pos: { x: 200, y: 50 },
             isDrag: false
 
@@ -25,6 +27,7 @@ function setLineTxt(text, selectedLine) {
     gMeme.lines[gMeme.selectedLineIdx].txt = text
     console.log(gMeme);
 }
+
 function setNewLine() {
     let linesNumber = gMeme.lines.length
 
@@ -38,6 +41,12 @@ function setNewLine() {
         console.log('gmeme+ line', gMeme)
         return gMeme.lines.length
     }
+}
+//delete line
+function deleteLine(selectedLine) {
+    let selectedLineIdx = selectedLine
+    gMeme.lines.splice(selectedLineIdx, 1)
+
 }
 function setCurrentLine(currentLine) {
     console.log('after switch', currentLine)
@@ -53,7 +62,6 @@ function setImg(img) {
         let img = _createMemeImg(imgId, imgUrl,)
         gImgs.push(img)
     }
-    console.log(gImgs);
 
 }
 
@@ -66,6 +74,19 @@ function setColor(color) {
 function setTextSize(diff) {
     gMeme.lines[gMeme.selectedLineIdx].size += diff
 }
+
+function setFont(font){
+    gMeme.lines[gMeme.selectedLineIdx].font=font
+}
+
+function setAlignment(alignment) {
+    if (alignment === 1) gMeme.lines[gMeme.selectedLineIdx].alignment = 'left'
+    else if (alignment === 2) gMeme.lines[gMeme.selectedLineIdx].alignment = 'center'
+    else gMeme.lines[gMeme.selectedLineIdx].alignment = 'right'
+
+}
+
+
 
 function setLinePos(x, y) {
     gMeme.lines.pos.x = x
@@ -93,21 +114,48 @@ function _createLine(txt, size, color, pos) {
 }
 
 //select lines
-function isLineClicked(clickedPos){
-    const pos = gMeme.lines[gMeme.selectedLineIdx].pos
-    const distance= Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
-    if( distance<= gMeme.lines[gMeme.selectedLineIdx].size){
-        console.log('line is clicked',distance)
+function isLineClicked(clickedPos) {
+    const islineClicked = isInTextRectangle(gMeme.lines[gMeme.selectedLineIdx], clickedPos)
+    console.log(islineClicked);
+    if (islineClicked) {
+        setCurrentTextInput()
         return true
     }
-    else{
-        console.log('line is not clicked',distance);
+    else {
+        console.log('line is not clicked');
     }
 }
-function setLineDrag(isDrag){
-    gMeme.lines[gMeme.selectedLineIdx].isDrag=isDrag
+function setLineDrag(isDrag) {
+    gMeme.lines[gMeme.selectedLineIdx].isDrag = isDrag
 }
-function moveLine(dx,dy){
-    gMeme.lines[gMeme.selectedLineIdx].pos.x+=dx
-    gMeme.lines[gMeme.selectedLineIdx].pos.y+=dy
+function moveLine(dx, dy) {
+    gMeme.lines[gMeme.selectedLineIdx].pos.x += dx
+    gMeme.lines[gMeme.selectedLineIdx].pos.y += dy
+}
+function setCurrentTextInput() {
+    document.querySelector('.input-text').value = gMeme.lines[gMeme.selectedLineIdx].txt
+    document.querySelector('.input-text').ariaPlaceholder = gMeme.lines[gMeme.selectedLineIdx].txt
+}
+
+function checkLineSwichOnSelect(clickedPos) {
+    let currentIndex = gMeme.selectedLineIdx
+    for (let i = 0; i < gMeme.lines.length; i++) {
+        let line = gMeme.lines[i]
+        let isOnText = isInTextRectangle(line, clickedPos)
+        if (isOnText) {
+            currentIndex = i
+            setCurrentLine(currentIndex)
+        }
+
+    }
+
+    return currentIndex
+
+}
+function isInTextRectangle(line, clickedPos) {
+    let textWidth = gCtx.measureText(line.txt).width
+    let textHeight = line.size
+    if (clickedPos.x >= line.pos.x - (textWidth / 2) && clickedPos.x <= line.pos.x + (textWidth / 2) &&
+        clickedPos.y >= line.pos.y - (textHeight / 2) && clickedPos.y <= line.pos.y + (textHeight / 2)) return true
+    else return false
 }

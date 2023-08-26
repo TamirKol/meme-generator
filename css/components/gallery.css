@@ -3,5 +3,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(auto, 1fr);
     gap: 10px;
-    padding-bottom: 40px;
+    padding-bottom: 10px;
+    width: 100%;
+    
 }

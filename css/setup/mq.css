@@ -1,8 +1,13 @@
 /* MOBILE ONLY */
 @media (max-width: 660px) {
+    .main-layout{
+        grid-template-columns: 20px 1fr 20px;
+     
+    }
     .main-header {
         padding: 20px 0;
         min-height: 70px;
+        grid-area: 'header';
     }
 
     .main-header .main-nav {
@@ -33,6 +38,23 @@
     .main-header .main-nav li {
         border-bottom: 1px solid #ccc;
     }
+
+    .image-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(auto, 1fr);
+    }
+    .editor{
+        grid-template-rows: repeat(2, 1fr); 
+        grid-template-columns: 1fr; 
+        grid-template-areas:
+          "canvas"
+          "features";
+ 
+    }
+    footer{
+        grid-area: 'footer'
+    }
+
 }
 
 /* SMALL */
@@ -40,12 +62,15 @@
     .main-layout {
         grid-template-columns: minmax(20px, 1fr) minmax(auto, var(--s)) minmax(20px, 1fr);
     }
+    .editor{
+        grid-template-columns: minmax(auto,1fr) minmax(auto,1fr)
+    }
     .btn-toggle-menu {
         display: none;
     }
 }
 
-/* MEDIUM */
+/* MEDIUM
 
 @media (min-width: 920px) {
     html {
@@ -55,19 +80,24 @@
     .main-layout {
         grid-template-columns: minmax(20px, 1fr) minmax(auto, var(--m)) minmax(20px, 1fr);
     }
-   
-}
+    .editor{
+        grid-template-columns: minmax(auto,1fr) minmax(auto,1fr)
+    }
+} */
 
 /* LARGE */
 @media (min-width: 1120px) {
     html {
         font-size: 16px;
     }
+
     .main-layout {
         grid-template-columns: minmax(20px, 1fr) minmax(auto, var(--l)) minmax(20px, 1fr);
     }
-
+    .editor{
+        grid-template-columns: minmax(auto,1fr) minmax(auto,1fr)
+    }
     :root {
-        --headerHeight: 130px;
+        --headerHeight: 100px;
     }
 }

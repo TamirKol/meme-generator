@@ -9,6 +9,7 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 //init
 function onInit() {
+  HideMeme()
   renderGallery()
   gElCanvas = document.querySelector('canvas')
   gCtx = gElCanvas.getContext('2d')
@@ -23,9 +24,6 @@ function renderMeme() {
   const elMeme = onGetMeme(currentImg.id)
 
   drawMeme(elMeme)
-
-
-  // drawText(elMemeLine.txt, elMemeLine.color, elMemeLine.size, elMemeSelectedLine)
 
 
 }
@@ -43,14 +41,14 @@ function onClearCanvas() {
   // gCtx.clearRect(0, 0, gElCanvas.width / 2, gElCanvas.height / 2)
 }
 //draw
-function drawText(text, color = 'white', size = 30, selectedLine, x, y) {
-  gCtx.lineWidth = 1
+function drawText(text, color = 'white',font='Impact',alignment='center' ,size = 30, x, y) {
+  gCtx.lineWidth = 2
   gCtx.strokeStyle = 'black'
   gCtx.fillStyle = color
-  gCtx.font = size + 'px Arial'
-  gCtx.textAlign = 'center'
+  gCtx.font = size + 'px '+font
+  gCtx.textAlign = alignment
   gCtx.textBaseline = 'middle'
-
+  
   gCtx.fillText(text, x, y)
   gCtx.strokeText(text, x, y)
 
@@ -61,7 +59,7 @@ function drawMeme(elMeme) {
   let elMemeSelectedline = gSelectedLine
   elMeme.lines.map((line) => {
 
-    drawText(line.txt, line.color, line.size, elMemeSelectedline, line.pos.x, line.pos.y)
+    drawText(line.txt, line.color,line.font,line.alignment,line.size,line.pos.x, line.pos.y)
     elMemeSelectedline++
 
   })
@@ -70,7 +68,7 @@ function drawFrame(x, y, size) {
   onClearCanvas()
   renderMeme()
   gCtx.lineWidth = 2;
-  gCtx.strokeStyle = 'lightbluesky';
+  gCtx.strokeStyle = 'black';
   gCtx.beginPath();
   gCtx.moveTo(0, y - 20);
   gCtx.lineTo(x, y - 20);
@@ -88,7 +86,7 @@ function onGetMeme(imgId) {
 
 function onAddLine() {
   setNewLine()
-
+  renderMeme()
 }
 
 //update
@@ -101,6 +99,7 @@ function onImgSelect(img) {
   console.log(img);
   setImg(img)
   currentImg = img
+  ShowMemeEditor()
   renderMeme()
 }
 
@@ -113,6 +112,12 @@ function onTextSizeChange(diff) {
   setTextSize(diff)
   renderMeme()
 }
+
+function onTextAlignment(alignment){
+  setAlignment(alignment)
+  renderMeme()
+    
+  }
 
 function onSwichLine() {
   console.log(gSelectedLine)
@@ -149,11 +154,6 @@ function onSwichLine() {
       }
     }
 
-  // if (gSelectedLine >= elMeme.lines.length) { gSelectedLine = 0 }
-  // else if
-  // else {
-  //   elMeme.selectedLineIdx = gSelectedLine
-  //   setCurrentLine(elMeme.selectedLineIdx)
   
   renderMeme()
   let x = gElCanvas.width
@@ -163,17 +163,11 @@ function onSwichLine() {
 }
 
 //delete
-function onDeleteLine() { }
-//download
-
-function downloadCanvas(elLink) {
-  const dataUrl = gElCanvas.toDataURL()
-  console.log('dataUrl', dataUrl)
-
-  elLink.href = dataUrl
-  // Set a name for the downloaded file
-  elLink.download = 'my-img'
+function onDeleteLine() { 
+  deleteLine(gSelectedLine)
+  renderMeme()
 }
+
 //event listeners
 
 //Handle the listeners
@@ -207,8 +201,10 @@ function onDown(ev) {
   // Get the ev pos from mouse or touch
   const pos = getEvPos(ev)
   // console.log('pos', pos)
+
+  gSelectedLine=checkLineSwichOnSelect(pos)
+
   if (!isLineClicked(pos)) return
-  // onSwichLine()
   setLineDrag(true)
   //Save the pos we start from
   gLineStartPos = pos
@@ -265,3 +261,9 @@ function getEvPos(ev) {
   }
   return pos
 }
+//fonts
+function onChangeFont(fontValue){
+  setFont(fontValue)
+  renderMeme()
+}
+
