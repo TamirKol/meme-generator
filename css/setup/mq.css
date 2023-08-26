@@ -44,7 +44,7 @@
         grid-template-rows: repeat(auto, 1fr);
     }
     .editor{
-        grid-template-rows: repeat(2, 1fr); 
+        grid-template-rows: 1fr ; 
         grid-template-columns: 1fr; 
         grid-template-areas:
           "canvas"
@@ -63,7 +63,11 @@
         grid-template-columns: minmax(20px, 1fr) minmax(auto, var(--s)) minmax(20px, 1fr);
     }
     .editor{
-        grid-template-columns: minmax(auto,1fr) minmax(auto,1fr)
+        grid-template-columns: minmax(auto,1fr) ;
+        grid-template-rows: minmax(auto,1fr) ; 
+        grid-template-areas:
+          "canvas"
+          "features";
     }
     .btn-toggle-menu {
         display: none;

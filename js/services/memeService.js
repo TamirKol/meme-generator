@@ -1,5 +1,7 @@
-var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] }]
-var gMeme = {
+let gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] }]
+let gSavedMemes=[]
+
+let gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
     lines: [
@@ -7,7 +9,7 @@ var gMeme = {
             txt: 'I sometimes eat Falafel',
             size: 30,
             alignment: 'center',
-            color: 'red',
+            color: 'white',
             font:'Impact',
             pos: { x: 200, y: 50 },
             isDrag: false
@@ -57,6 +59,8 @@ function setCurrentLine(currentLine) {
 function setImg(img) {
     const imgUrl = img.src
     const imgId = img.id
+    gMeme.selectedImgId=imgId
+   console.log(gMeme);
     const inGImgs = gImgs.some(img => img.url === imgUrl)
     if (!inGImgs) {
         let img = _createMemeImg(imgId, imgUrl,)
@@ -158,4 +162,10 @@ function isInTextRectangle(line, clickedPos) {
     if (clickedPos.x >= line.pos.x - (textWidth / 2) && clickedPos.x <= line.pos.x + (textWidth / 2) &&
         clickedPos.y >= line.pos.y - (textHeight / 2) && clickedPos.y <= line.pos.y + (textHeight / 2)) return true
     else return false
+}
+
+//save
+function savedMemes(){
+    gSavedMemes.push(gMeme)
+saveToStorage('savedMemes',gSavedMemes)
 }

@@ -19,14 +19,12 @@ function onInit() {
 
 function renderMeme() {
   onClearCanvas()
-  currentImg
+  // currentImg
   coverCanvasWithImage(currentImg)
   const elMeme = onGetMeme(currentImg.id)
-
   drawMeme(elMeme)
-
-
 }
+
 //canvas functions
 function coverCanvasWithImage(elImg) {
   resizeCanvas()
@@ -92,14 +90,14 @@ function onAddLine() {
 //update
 function OnSetLineTxt(text) {
   const lineNumber = gSelectedLine
-  setLineTxt(text, lineNumber)
+  setLineTxt(text,lineNumber)
   renderMeme()
 }
+
 function onImgSelect(img) {
   console.log(img);
   setImg(img)
   currentImg = img
-  ShowMemeEditor()
   renderMeme()
 }
 
@@ -154,7 +152,6 @@ function onSwichLine() {
       }
     }
 
-  
   renderMeme()
   let x = gElCanvas.width
   let y = elMeme.lines[elMeme.selectedLineIdx].pos.y
@@ -261,9 +258,30 @@ function getEvPos(ev) {
   }
   return pos
 }
+//flexible button
+
+function onFlexMeme(){
+
+  const images= getImagesToShow()
+  const randomIndex= getRandomInt(1,images.length)
+  currentImg=images[randomIndex]
+console.log(currentImg);
+let img=document.createElement('img')
+img.src=currentImg.url
+img.id=currentImg.id
+onImgSelect(img)
+}
+
 //fonts
 function onChangeFont(fontValue){
   setFont(fontValue)
   renderMeme()
 }
 
+//save
+function onSaveMeme(){
+  alert('still in development..saving the meme to local storage need to be loaded and rendered in gallery as saved memes')
+  let meme=getMeme()
+  console.log(meme)
+  savedMemes(meme)
+}

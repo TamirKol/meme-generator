@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>meme generator</title>
     <link rel="stylesheet" href="css\styles.css">
+    <script src="js\utils.js"></script>
     <script src="js\services\memeService.js"></script>
     <script src="js\controllers\memeController.js"></script>
     <script src="js\controllers\galleryController.js"></script>
     <script src="js\services\galleryService.js"></script>
-    <script src="js\main.js"></script>
 </head>
 
 <body onload="onInit()" class="main-layout">
@@ -41,6 +41,7 @@
     <div class="popular-tags"></div>
     <main class="main-container">
         <section class="gallery">
+            <button onclick="onFlexMeme()" class="btn-flexible">I'm Flexible </button>
             <div class="image-gallery"></div>
         </section>
 
@@ -64,50 +65,51 @@
                 </div>
 
                 <div class="typography grid">
-                    <button onclick="onTextSizeChange(4)" class="btn-increase">A+</button>
-                    <span>font size</span>
-                    <button onclick="onTextSizeChange(-4)" class="btn-decrease">A-</button>
-                    <button onclick="onTextAlignment(1)" class="btn-align"><img
+                   
+                    
+                        <button onclick="onTextSizeChange(4)" class="btn-increase">A+</button>
+                        <button onclick="onTextSizeChange(-4)" class="btn-decrease">A-</button>
+                        
+                        
+                        
+                        <button onclick="onTextAlignment(1)" class="btn-align"><img
                             src="meme-imgs\ICONS\align-to-left.png"></button>
-                    <button onclick="onTextAlignment(2)" class="btn-align"><img
-                            src="meme-imgs\ICONS\center-text-alignment.png"></button>
-                    <button onclick="onTextAlignment(3)" class="btn-align"><img
-                            src="meme-imgs\ICONS\align-to-right.png"></button>
-                    <div><input type="color" oninput="onSetColor(this.value)" class="input-color">🎨</input>
+                            <button onclick="onTextAlignment(2)" class="btn-align"><img
+                                src="meme-imgs\ICONS\center-text-alignment.png"></button>
+                                <button onclick="onTextAlignment(3)" class="btn-align"><img
+                                    src="meme-imgs\ICONS\align-to-right.png"></button>
+                                    
+                                    
+                                    
+                                    <div><input type="color" oninput="onSetColor(this.value)" class="input-color">🎨</input></div>
+
+                        <select onchange="onChangeFont(this.value)">
+                            <option value="Impact">Impact</option>
+                            <option value="Arial">Arial</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                            <option value="Courier New">Courier New</option>
+                            <option value="Gill Sans">Gill Sans</option>
+                        </select>
                     </div>
-                    <select onchange="onChangeFont(this.value)">
-                        <option value="Impact">Impact</option>
-                        <option value="Arial">Arial</option>
-                        <option value="Times New Roman">Times New Roman</option>
-                        <option value="Courier New">Courier New</option>
-                        <option value="Gill Sans">Gill Sans</option>
-                    </select>
-
-
+                    <div class="share-features">
+                        <button class="btn-save" onclick="onSaveMeme()">Save Meme</button>
+                        <a href="#" onclick="downloadCanvas(this)" class="btn-download" download="file-name">Download
+                            Meme</a>
+                        <a href="#" onclick="onUploadImg()" class="btn-download"><img
+                                src="meme-imgs\ICONS\facebook-logo.png"></a>
+    
+    
+                    </div>
                 </div>
 
-                <div class="emoji"></div>
-                <div class="share-features">
-                    <a href="#" onclick="downloadCanvas(this)" class="btn-download" download="file-name">Download
-                        Meme</a>
-                    <a href="#" onclick="onUploadImg()" class="btn-download"><img
-                            src="meme-imgs\ICONS\facebook-logo.png"></a>
-
-
-                </div>
             </div>
         </section>
     </main>
     <footer class="full">
-        <div class="logo">Meme Generator<span>😎</span></div>
+      
         <h4 class="rights-reserved">© 2023 - All Rights Reserved </h4>
     </footer>
     <dialog class="dialog" onclick="onClickOutside(event, this)">
-        <h2>Join us to get access to the latest stories!</h2>
-        <label class="email">
-            <span>E-Mail:</span>
-            <input class="email-input" type="email" name="email" placeholder="Insert your email here" />
-        </label>
         <div class="modal-btn-container ">
             <button class="modal-close-btn btn" onclick="closeModal()">Close</button>
             <button class="modal-submit-btn btn" type="submit">Submit</button>

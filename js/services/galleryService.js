@@ -76,6 +76,7 @@ let gGallery = [
 
 
 ]
+const gMySavedMemes = loadFromStorage('savedMemes')
 
 function getImagesToShow() {
     const images = gGallery.map(img => img)

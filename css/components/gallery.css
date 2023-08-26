@@ -7,3 +7,7 @@
     width: 100%;
     
 }
+.btn-flexible{
+    background-color: var(--clrPrimary2);
+    border-radius: 20px;
+}
