@@ -18,6 +18,7 @@ function setElHtml(selector, html) {
 //download
 
 function downloadCanvas(elLink) {
+  
   const dataUrl = gElCanvas.toDataURL()
   console.log('dataUrl', dataUrl)
 

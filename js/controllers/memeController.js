@@ -282,8 +282,15 @@ function onChangeFont(fontValue){
 
 //save
 function onSaveMeme(){
+
   alert('still in development..saving the meme to local storage need to be loaded and rendered in gallery as saved memes')
   let meme=getMeme()
   console.log(meme)
   savedMemes(meme)
+}
+
+//download
+function onDownloadCanvas(ellink){
+  renderMeme()
+  downloadCanvas(ellink)
 }

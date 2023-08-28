@@ -8,10 +8,10 @@
     <link rel="icon" type="image/x-icon" href="meme-imgs\ICONS\favicon.ico">
     <link rel="stylesheet" href="css\styles.css">
     <script src="js\utils.js"></script>
-    <script src="js\services\memeService.js"></script>
-    <script src="js\controllers\memeController.js"></script>
     <script src="js\controllers\galleryController.js"></script>
     <script src="js\services\galleryService.js"></script>
+    <script src="js\services\memeService.js"></script>
+    <script src="js\controllers\memeController.js"></script>
 </head>
 
 <body onload="onInit()" class="main-layout">
@@ -96,7 +96,7 @@
                 </div>
                 <div class="share-features">
                     <button class="btn-save" onclick="onSaveMeme()">Save Meme</button>
-                    <a href="#" onclick="downloadCanvas(this)" class="btn-download" download="file-name">Download
+                    <a href="#" onclick="onDownloadCanvas(this)" class="btn-download" download="file-name">Download
                         Meme</a>
                     <a href="#" onclick="onUploadImg()" class="btn-share"><img
                             src="meme-imgs\ICONS\facebook-logo.png"></a>
