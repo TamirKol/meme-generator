@@ -1,81 +1,135 @@
-.editor{
+.editor {
     grid-template-rows: 1fr;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
     grid-template-areas: "canvas features";
     padding-bottom: 10px;
     display: grid;
 }
-.features{ 
+
+.features {
     display: grid;
-    grid-template-rows: repeat((5,1fr));
-    grid-template-columns: repeat((5,1fr));;
-    gap: 10px;
-    grid-area: 'features';
-    justify-items: center;
+    justify-content: center;
     border: 1px solid black;
     box-shadow: 0px 0px 4px;
-    background: rgb(9,159,193);
-    background: linear-gradient(233deg, rgba(9,159,193,1) 0%, rgba(0,75,233,1) 100%);
+    background: rgb(9, 159, 193);
+    background: linear-gradient(233deg, rgba(9, 159, 193, 1) 0%, rgba(0, 75, 233, 1) 100%);
 }
 
-.typography{
- 
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    place-items: center;
-}
-
-.canvas-container{
+.canvas-container {
     grid-area: 'canvas';
 }
-.btn-download{
+
+.btn-download {
     color: black;
 }
-.input-text{
-    width: 100%;
+
+.input-text {
+
+    width: 80%;
     border-radius: 10px;
     height: 50px;
     font-size: 1rem;
 }
-.text-lines{
-    justify-self:center;
-    align-items: center;
-    padding-top: 10px;
+
+.text-lines {
+
+    padding-top: 1em;
     font-size: 1.rem;
 }
 
-.btn-add-line{
-    background-color: #5cb85c ;
-   
-    color:black;
-    
+.btn-add-line {
+    background-color: #5cb85c;
+
+    color: black;
+
 }
-.btn-switch-line{
-    background-color:var(--clrPrimary2) ;
-    
-    
+
+.btn-switch-line {
+    background-color: var(--clrPrimary2);
+
+
 }
-.btn-delete-line{
-    background-color:#d9534f ;
-  
+
+.btn-delete-line {
+    background-color: #d9534f;
+
 }
-.btn-increase{
-    background-color:var(--clrPrimary);
+
+.btn-increase {
+    background-color: var(--clrPrimary);
     font-weight: bold;
 }
-.btn-download{
+
+.btn-download {
     border: 2px solid blanchedalmond;
     border-radius: 10px;
-    padding:20px ;
+    padding: 0.6em;
     background-color: var(--clrPrimary2);
     font-weight: bold;
 }
-.btn-download>img{
-   max-width:30px;
-   margin: auto;  
+
+.btn-download>img {
+
+    margin: auto;
 }
-.btn-align >img{
-width: 70%;
-height:70%;
+
+
+.btn-share>img {
+    width: 30px;
+ 
+    
+}
+
+.typography {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(auto, 1fr));
+    grid-template-rows: repeat(2, minmax(auto, 1fr));
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    justify-items: center;
+} 
+
+.inputs-color-fonts {
+    display: grid;
+}
+
+ .btn-increase { 
+ 
+   width: var(--controlbutton,30px);
+}
+
+.btn-decrease {
+  
+    width:var(--controlbutton,30px);
+}
+
+.btn-align-left {
+   
+    width: var(--controlbutton,30px);
+}
+
+.btn-align-center {
+ 
+    width: var(--controlbutton,30px);
+}
+
+.btn-align-right {
+   
+    width: var(--controlbutton,30px);
+}
+
+.inputs-color-fonts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+} 
+.lines-features{
+    display: flex;
+}
+.share-features{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
 }

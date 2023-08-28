@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>meme generator</title>
+    <link rel="icon" type="image/x-icon" href="meme-imgs\ICONS\favicon.ico">
     <link rel="stylesheet" href="css\styles.css">
     <script src="js\utils.js"></script>
     <script src="js\services\memeService.js"></script>
@@ -35,9 +36,9 @@
 
         </div>
     </header>
-    <div class="search-bar full">
+    <!-- <div class="search-bar full">
         <input type="search" placeholder="search">
-    </div>
+    </div> -->
     <div class="popular-tags"></div>
     <main class="main-container">
         <section class="gallery">
@@ -64,49 +65,51 @@
                     <button onclick="onDeleteLine()" class="btn-delete-line">✖</button>
                 </div>
 
-                <div class="typography grid">
-                   
-                    
-                        <button onclick="onTextSizeChange(4)" class="btn-increase">A+</button>
-                        <button onclick="onTextSizeChange(-4)" class="btn-decrease">A-</button>
-                        
-                        
-                        
-                        <button onclick="onTextAlignment(1)" class="btn-align"><img
-                            src="meme-imgs\ICONS\align-to-left.png"></button>
-                            <button onclick="onTextAlignment(2)" class="btn-align"><img
-                                src="meme-imgs\ICONS\center-text-alignment.png"></button>
-                                <button onclick="onTextAlignment(3)" class="btn-align"><img
-                                    src="meme-imgs\ICONS\align-to-right.png"></button>
-                                    
-                                    
-                                    
-                                    <div><input type="color" oninput="onSetColor(this.value)" class="input-color">🎨</input></div>
+                <div class="typography ">
+                
 
-                        <select onchange="onChangeFont(this.value)">
-                            <option value="Impact">Impact</option>
-                            <option value="Arial">Arial</option>
-                            <option value="Times New Roman">Times New Roman</option>
-                            <option value="Courier New">Courier New</option>
-                            <option value="Gill Sans">Gill Sans</option>
-                        </select>
-                    </div>
-                    <div class="share-features">
-                        <button class="btn-save" onclick="onSaveMeme()">Save Meme</button>
-                        <a href="#" onclick="downloadCanvas(this)" class="btn-download" download="file-name">Download
-                            Meme</a>
-                        <a href="#" onclick="onUploadImg()" class="btn-download"><img
-                                src="meme-imgs\ICONS\facebook-logo.png"></a>
-    
-    
-                    </div>
+                    <button onclick="onTextSizeChange(4)" class="btn-increase">A+</button>
+                    <button onclick="onTextSizeChange(-4)" class="btn-decrease">A-</button>
+
+
+                    <button onclick="onTextAlignment(1)" class="btn-align-left"><img
+                            src="meme-imgs\ICONS\align-to-left.png"></button>
+                    <button onclick="onTextAlignment(2)" class="btn-align-center"><img
+                            src="meme-imgs\ICONS\center-text-alignment.png"></button>
+                    <button onclick="onTextAlignment(3)" class="btn-align-right"><img
+                            src="meme-imgs\ICONS\align-to-right.png"></button>
+
                 </div>
+
+                <div class="inputs-color-fonts">
+                    <div class="color-input"><input type="color" oninput="onSetColor(this.value)"
+                            class="input-color">🎨</input></div>
+
+                    <select class="select-font" onchange="onChangeFont(this.value)">
+                        <option value="Impact">Impact</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Gill Sans">Gill Sans</option>
+                    </select>
+
+                </div>
+                <div class="share-features">
+                    <button class="btn-save" onclick="onSaveMeme()">Save Meme</button>
+                    <a href="#" onclick="downloadCanvas(this)" class="btn-download" download="file-name">Download
+                        Meme</a>
+                    <a href="#" onclick="onUploadImg()" class="btn-share"><img
+                            src="meme-imgs\ICONS\facebook-logo.png"></a>
+
+
+                </div>
+            </div>
 
             </div>
         </section>
     </main>
     <footer class="full">
-      
+
         <h4 class="rights-reserved">© 2023 - All Rights Reserved </h4>
     </footer>
     <dialog class="dialog" onclick="onClickOutside(event, this)">

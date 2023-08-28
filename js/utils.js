@@ -7,14 +7,14 @@ function closeModal() {
     // document.querySelector('.backdrop').classList.remove('opaque')
 }
 function HideMeme(){
-document.querySelector('.editor').classList.add('.hidden')
+document.querySelector('.editor').classList.add('hidden')
 }
-function ShowMemeEditor(){
-    document.querySelector('.editor').classList.remove('.hidden')
-    document.querySelector('.gallery').classList.add('.hidden')
+function showMemeEditor(){
+    document.querySelector('.editor').classList.remove('hidden')
+    document.querySelector('.gallery').classList.add('hidden')
 }
 function showGallery(){
-    document.querySelector('.gallery').classList.remove('.hidden')
+    document.querySelector('.gallery').classList.remove('hidden')
 }
 function getRandomInt(min, max) {
     min = Math.ceil(min);

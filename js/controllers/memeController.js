@@ -15,6 +15,7 @@ function onInit() {
   gCtx = gElCanvas.getContext('2d')
   addListeners()
   gSelectedLine = 0
+
 }
 
 function renderMeme() {
@@ -95,6 +96,7 @@ function OnSetLineTxt(text) {
 }
 
 function onImgSelect(img) {
+  showMemeEditor()
   console.log(img);
   setImg(img)
   currentImg = img
